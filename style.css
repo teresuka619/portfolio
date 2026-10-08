@@ -1,0 +1,179 @@
+/* ========== 1. VARIABLES (colores y medidas) ========== */
+:root {
+  --bg: #f7f8f5;          /* fondo */
+  --bg-alt: #eef1ec;      /* fondo de secciones alternas */
+  --card: #ffffff;
+  --text: #1c2420;
+  --muted: #4d5a53;
+  --primary: #1f4d3a;     /* verde oscuro */
+  --on-primary: #ffffff;  /* texto sobre el color principal */
+  --accent: #e07a3f;      /* acento */
+  --border: #dde3dc;
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(20, 40, 30, .08);
+  --header-h: 68px;
+}
+
+/* Modo oscuro: solo se redefinen las variables */
+[data-theme="dark"] {
+  --bg: #0f1713;
+  --bg-alt: #141f19;
+  --card: #1a2620;
+  --text: #e8efe9;
+  --muted: #b4c2b9;
+  --primary: #7fd6a4;
+  --on-primary: #0f1713;
+  --border: #2a3a31;
+  --shadow: 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+/* ========== 2. BASE ========== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;               /* scroll suave entre secciones */
+  scroll-padding-top: var(--header-h);   /* evita que el menú tape los títulos */
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  transition: background .3s, color .3s;
+}
+
+h1, h2, h3 { line-height: 1.2; margin: 0 0 .6rem; }
+p { margin: 0 0 1rem; }
+ul { list-style: none; margin: 0; padding: 0; }
+a { color: inherit; }
+
+.container { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+/* Foco visible para navegar con teclado */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.skip-link {
+  position: absolute; left: 1rem; top: -4rem;
+  background: var(--primary); color: var(--on-primary);
+  padding: .6rem 1rem; border-radius: 8px; z-index: 200;
+}
+.skip-link:focus { top: 1rem; }
+
+/* ========== 3. CABECERA Y MENÚ (móvil primero) ========== */
+.header {
+  position: fixed; inset: 0 0 auto 0; height: var(--header-h);
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+.header__inner { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 700; font-size: 1.4rem; text-decoration: none; color: var(--primary); }
+.logo span { color: var(--accent); }
+.header__actions { display: flex; gap: .5rem; align-items: center; }
+
+.icon-btn {
+  width: 42px; height: 42px; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card);
+  color: var(--text); cursor: pointer; font-size: 1.1rem;
+  display: grid; place-items: center; transition: transform .2s;
+}
+.icon-btn:hover { transform: translateY(-2px); }
+
+/* Menú desplegable en móvil */
+.nav {
+  position: absolute; top: var(--header-h); left: 0; right: 0;
+  background: var(--bg); border-bottom: 1px solid var(--border);
+  max-height: 0; overflow: hidden; transition: max-height .3s ease;
+}
+.nav.abierto { max-height: 320px; }
+.nav__list { padding: .5rem 1.25rem 1rem; }
+.nav__list a { display: block; padding: .8rem 0; text-decoration: none; font-weight: 500; }
+.nav__list a:hover { color: var(--accent); }
+
+/* Hamburguesa */
+.burger { flex-direction: column; gap: 4px; }
+.burger__line { display: block; width: 20px; height: 2px; background: var(--text); transition: .3s; }
+.burger[aria-expanded="true"] .burger__line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.burger[aria-expanded="true"] .burger__line:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] .burger__line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+/* ========== 4. HERO ========== */
+.hero { padding: calc(var(--header-h) + 4rem) 0 4rem; }
+.hero__eyebrow { color: var(--accent); font-weight: 600; margin-bottom: .3rem; }
+.hero h1 { font-size: clamp(2.2rem, 7vw, 3.8rem); color: var(--primary); }
+.hero__title { font-size: clamp(1.1rem, 3vw, 1.4rem); font-weight: 500; max-width: 36ch; }
+.hero__text { color: var(--muted); max-width: 52ch; }
+.hero__buttons { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.5rem; }
+
+/* ========== 5. BOTONES ========== */
+.btn {
+  display: inline-block; padding: .8rem 1.5rem; border-radius: 10px;
+  font-weight: 600; text-decoration: none; border: 2px solid var(--primary);
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.btn--primary { background: var(--primary); color: var(--on-primary); }
+.btn--outline { background: transparent; color: var(--primary); }
+.btn--outline:hover { background: var(--primary); color: var(--on-primary); }
+
+/* ========== 6. SECCIONES Y TARJETAS ========== */
+.section { padding: 4.5rem 0; }
+.section--alt { background: var(--bg-alt); }
+.section__title { font-size: clamp(1.6rem, 4vw, 2.2rem); color: var(--primary); margin-bottom: 1.8rem; }
+.section__title::after {
+  content: ""; display: block; width: 48px; height: 4px;
+  background: var(--accent); border-radius: 2px; margin-top: .5rem;
+}
+
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow);
+  transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-4px); }
+
+.grid { display: grid; gap: 1.2rem; }
+.about { display: grid; gap: 1.5rem; }
+.facts { display: grid; gap: 1rem; }
+.facts strong { display: block; color: var(--primary); }
+.facts span { color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.tags li {
+  padding: .3rem .8rem; border-radius: 999px; font-size: .9rem; font-weight: 500;
+  background: var(--bg-alt); border: 1px solid var(--border);
+}
+.project__links { display: flex; gap: 1.2rem; font-weight: 600; }
+.project__links a { color: var(--primary); }
+.project__links a:hover { color: var(--accent); }
+
+.contact { text-align: center; }
+.contact .section__title::after { margin-inline: auto; }
+.contact__buttons { justify-content: center; }
+
+.footer { padding: 1.5rem 0; text-align: center; color: var(--muted); border-top: 1px solid var(--border); }
+.footer p { margin: 0; }
+
+/* ========== 7. ANIMACIÓN AL HACER SCROLL ========== */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ========== 8. TABLET Y ESCRITORIO ========== */
+@media (min-width: 768px) {
+  .burger { display: none; }
+  .nav { position: static; max-height: none; overflow: visible; background: none; border: 0; }
+  .nav__list { display: flex; gap: 1.8rem; padding: 0; }
+  .nav__list a { padding: .4rem 0; }
+  .grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .about { grid-template-columns: 1.2fr 1fr; align-items: start; }
+}

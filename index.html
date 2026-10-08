@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gonzalo Duarte Rivillas | Desarrollador web junior</title>
+  <meta name="description" content="Portfolio de Gonzalo Duarte Rivillas, estudiante de DAW y desarrollador web junior en Marmolejo (Jaén). Habilidades y contacto.">
+  <meta name="author" content="Gonzalo Duarte Rivillas">
+  <meta name="theme-color" content="#1f4d3a">
+  <!-- Open Graph: vista previa al compartir el enlace -->
+  <meta property="og:title" content="Gonzalo Duarte Rivillas | Desarrollador web junior">
+  <meta property="og:description" content="Estudiante de DAW buscando su primer empleo. Conoce mis habilidades y contacta conmigo.">
+  <meta property="og:type" content="website">
+
+  <!-- Única tipografía: Inter (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Enlace para saltar al contenido (accesibilidad con teclado) -->
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="Ir al inicio">GD<span>.</span></a>
+
+      <nav id="menu" class="nav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <!-- Botón modo oscuro -->
+        <button id="tema" class="icon-btn" type="button" aria-label="Cambiar a modo oscuro">
+          <span aria-hidden="true">🌙</span>
+        </button>
+        <!-- Botón hamburguesa (solo móvil) -->
+        <button id="hamburguesa" class="icon-btn burger" type="button"
+                aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+          <span class="burger__line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container reveal">
+        <p class="hero__eyebrow">Hola, soy</p>
+        <h1>Gonzalo Duarte Rivillas</h1>
+        <p class="hero__title">Estudiante de Desarrollo de Aplicaciones Web (DAW) y desarrollador web junior</p>
+        <p class="hero__text">Me gusta construir webs claras, accesibles y bien hechas. Busco mi primer empleo para seguir aprendiendo en un equipo real.</p>
+        <div class="hero__buttons">
+          <a href="#habilidades" class="btn btn--primary">Ver habilidades</a>
+          <a href="#contacto" class="btn btn--outline">Contactar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section">
+      <div class="container">
+        <h2 class="section__title reveal">Sobre mí</h2>
+        <div class="about">
+          <p class="reveal">
+            Soy estudiante de 1º del Grado Superior en DAW (I.E.S Las Fuentezuelas) y vengo de un
+            Bachillerato tecnológico. Soy responsable, trabajador y aprendo rápido. Tengo experiencia
+            en atención al cliente (presencial y telefónica) y en gestión de datos, gracias a mis
+            prácticas en una agencia de seguros. Busco un empleo compatible con mis estudios.
+          </p>
+          <ul class="facts">
+            <li class="card reveal"><strong>Formación</strong><span>Grado Superior DAW (1º) · Bachillerato tecnológico</span></li>
+            <li class="card reveal"><strong>Idiomas</strong><span>Inglés B1 Trinity · Inglés B2 Aptis</span></li>
+            <li class="card reveal"><strong>Carnet</strong><span>Carnet B</span></li>
+            <li class="card reveal"><strong>Ubicación</strong><span>Marmolejo (Jaén), España</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title reveal">Habilidades</h2>
+        <div class="grid grid--2">
+          <div class="card reveal">
+            <h3>Técnicas</h3>
+            <ul class="tags">
+              <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Git y GitHub</li><li>Ofimática avanzada</li>
+            </ul>
+          </div>
+          <div class="card reveal">
+            <h3>Personales</h3>
+            <ul class="tags">
+              <li>Atención al cliente</li><li>Trabajo en equipo</li><li>Organización</li><li>Comunicación</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <div class="container contact reveal">
+        <h2 class="section__title">Contacto</h2>
+        <p>¿Tienes una oferta o quieres saber más de mí? Escríbeme por el medio que prefieras.</p>
+        <div class="hero__buttons contact__buttons">
+          <a class="btn btn--primary" href="mailto:gonzaloduarterivillas14@gmail.com">Correo</a>
+          <a class="btn btn--outline" href="https://www.linkedin.com/in/gonzalo-duarte-rivillas-7b3613423/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn--outline" href="https://github.com/teresuka619" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="anio"></span> Gonzalo Duarte Rivillas · Marmolejo (Jaén)</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
